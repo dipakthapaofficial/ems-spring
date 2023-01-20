@@ -10,13 +10,15 @@ public class HelloViewController {
 	@GetMapping("/greet")
 	public String sayHello(Model model) {
 		System.out.println("Inside say hello method.. HelloViewController");
+		model.addAttribute("methodName", "greet12312312312");
 		return "something";
 	}
 	
 	@GetMapping("/ola")
-	public String sayOla() {
+	public String sayOla(Model model) {
 		System.out.println("Inside say ola method.. HelloViewController");
-		return "ola1";
+		model.addAttribute("methodName", "ola");
+		return "something";
 	}
 	
 }

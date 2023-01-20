@@ -11,11 +11,11 @@ public class HelloController {
 	public String sayHello(@RequestParam(value="name", defaultValue = "Hari") String name) {
 		System.out.println("Name:::::"+name);
 		
-		if (name != null && name != "") {
-			return "hello "+ name;
-		}
+//		if (name != null && name != "") {
+//			return "hello "+ name;
+//		}
 		
-		return "Hello World!!!!";
+		return "something";
 	}
 
 }

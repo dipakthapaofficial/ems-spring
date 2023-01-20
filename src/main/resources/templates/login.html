@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head> 
+    <title>Hello Page</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .form-box{
+            border:2px solid olivedrab;
+            width: 20vw;
+            height: 15vw;
+            margin: 10vw auto;
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+        }
+        #username, #password {
+            width:85%;
+            margin:auto;
+            height: 20px;
+        }
+        #submit{
+            width:45%;
+            margin:auto;
+            height: 25px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1> Namestey from <span th:text="${getuber}"></span></h1>
+    <div>
+        <form th:action="@{/login}" method="post" class="form-box">
+        <!-- <form th:action="@{/login-form}" method="get" class="form-box"> -->
+        <!-- <form th:action="@{/login-obj}" method="post" class="form-box" th:object="${loginDTO}"> -->
+        	<input type="hidden" name="id" th:value="${id}" th:field="*{id}">
+            <br>
+            <label style="margin-left: 15px;" for="username">User Name :</label>
+            <input type="text" id="username" name="username" th:value="${username}" th:field="*{username}">
+            <br>
+            <label style="margin-left: 15px;"  for="password">Password :</label>
+            <input type="password" id="password" name="password" th:value="${password}" th:field="*{password}">
+            <input id="submit" type="submit">
+        </form>
+    </div>
+</body>
+</html>
