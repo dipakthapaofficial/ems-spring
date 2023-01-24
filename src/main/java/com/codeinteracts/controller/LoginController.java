@@ -1,5 +1,7 @@
 package com.codeinteracts.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
+	
+	final static Logger logger = LoggerFactory.getLogger(HelloViewController.class);
 	
 	@GetMapping("/login")
 	public String login(Model model) {
@@ -24,9 +28,9 @@ public class LoginController {
 	
 	@GetMapping("/login-form")
 	public String getloginData(Model model, @RequestParam(value="username") String username, @RequestParam(value="password") String password) {
-		System.out.println("Inside get login data method.....");
-		System.out.println("Username::::" +username);
-		System.out.println("Password::::" +password);
+		logger.info("Inside get login data method.....");
+		logger.info("Username::::" +username);
+		logger.info("Password::::" +password);
 		
 		model.addAttribute("username", username);
 		model.addAttribute("password", password);
@@ -37,10 +41,10 @@ public class LoginController {
 	
 	@PostMapping("/login")
 	public String postLogin(Model model, @RequestParam(value="username") String username, @RequestParam(value="password") String password, @RequestParam(value="id") Integer id) {
-		System.out.println("Inside get postLogin method.....");
-		System.out.println("Username::::" +username);
-		System.out.println("Password::::" +password);
-		System.out.println("id::::" +id);
+		logger.info("Inside get postLogin method.....");
+		logger.info("Username::::" +username);
+		logger.info("Password::::" +password);
+		logger.info("id::::" +id);
 		
 		model.addAttribute("username", username);
 		model.addAttribute("password", password);
@@ -50,9 +54,9 @@ public class LoginController {
 	
 //	@PostMapping(value="/login-obj", consumes = "application/x-www-form-urlencoded")
 //	public String postLoginObject(Model model, @ModelAttribute LoginDTO loginDTO ) {
-//		System.out.println("Inside get login-obj method.....");
+//		logger.info("Inside get login-obj method.....");
 //		
-//		System.out.println(loginDTO);
+//		logger.info(loginDTO);
 //		
 //		model.addAttribute("loginDTO", loginDTO);
 //		

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+						http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+						http://www.liquibase.org/xml/ns/pro 
+						http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+						
+	<changeSet author="dipak" id="2022-01-23::9:48">
+        <createTable tableName="person">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints notNullConstraintName="true"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints notNullConstraintName="true"/>
+            </column>
+            <column name="dob" type="DATE"/>
+        </createTable>
+        
+        <createTable tableName="person_1">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints notNullConstraintName="true"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints notNullConstraintName="true"/>
+            </column>
+            <column name="dob" type="DATE"/>
+        </createTable>
+        
+    </changeSet>
+    
+    <changeSet author="dipak" id="2022-01-23::9:56">
+        <createTable tableName="person_2">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints notNullConstraintName="true"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints notNullConstraintName="true"/>
+            </column>
+            <column name="dob" type="DATE"/>
+            <column name="dob_1234" type="DATE"/>
+        </createTable>
+        
+    </changeSet>
+    
+    <changeSet author="dipak" id="2022-01-23::10:10">
+        <addColumn tableName="person_2">
+        	<column name="dob_4321" type="DATE"/>
+        </addColumn>
+        
+    </changeSet>
+    
+     <changeSet author="dipak" id="2022-01-23::10:11">
+        <sql>
+        	insert into person_2 (first_name, last_name, dob) values('john','john', '1990-12-12');
+        </sql>
+        
+    </changeSet>
+    
+    <changeSet author="dipak" id="2022-01-23::10:53">
+       <dropTable tableName="person_2"/>
+        
+    </changeSet>
+    
+    
+    
+    
+    
+</databaseChangeLog>
